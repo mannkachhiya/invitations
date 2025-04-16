@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wedding Invitation</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cinzel Decorative', cursive;
+      background: url('0.png') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .invitation {
+      padding: 40px 50px;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .invitation h1 {
+      font-size: 1.3em;
+      color: #ffcc37;
+      margin-bottom: 10px;
+    }
+
+    .invitation h2 {
+      font-size: 1.5em;
+      margin: 10px 0;
+      color: #ffffff;
+    }
+
+    .invitation p {
+      font-size: 1.1em;
+      margin: 10px 0;
+    }
+
+    .name {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #ffdf80;
+      margin-top: 20px;
+    }
+    
+    .title {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #ffcc37;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .invitation {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="invitation">
+    <h1>You're Invited!</h1>
+    <p class="name"></p>
+    <p>to the wedding of</p><hr>
+    <h2 class="name1">Dhruv</h2> 
+    <p>&</p> 
+    <h2 class="name2">Maitri</h2><hr>
+    <p class="title">❉ Date ❉</p>
+    <p class="wedding-date">Tuesday, Nov 25th, 2025</p>
+    <p class="title">❉ Time ❉</p>
+    <p class="wedding-time">7PM Onwards</p>
+    <p class="title">❉ Venue ❉</p>
+    <p class="wedding-venue">Address Is Pending In, Godhra</p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const idname = params.get('idname');
+    const name1 = params.get('name1');
+    const name2 = params.get('name2');
+    const date = params.get('date');
+    const time = params.get('time');
+    const venue = params.get('venue');
+
+    if (idname) {
+      document.querySelector('.name').textContent = `Dear, ${decodeURIComponent(idname)},`;
+    }
+
+    if (name1) {
+      document.querySelector('.name1').textContent = decodeURIComponent(name1);
+    }
+
+    if (name2) {
+      document.querySelector('.name2').textContent = decodeURIComponent(name2);
+    }
+
+    if (date) {
+      document.querySelector('.wedding-date').textContent = decodeURIComponent(date);
+    }
+
+    if (time) {
+      document.querySelector('.wedding-time').textContent = decodeURIComponent(time);
+    }
+
+    if (venue) {
+      document.querySelector('.wedding-venue').textContent = decodeURIComponent(venue);
+    }
+  </script>
+</body>
+</html>
