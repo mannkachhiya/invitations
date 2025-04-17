@@ -64,6 +64,49 @@
       }
     }
   </style>
+    <style>
+    /* Basic styling for sidebar */
+    #sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #f1f1f1;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+    }
+
+    #sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 18px;
+      display: block;
+      transition: 0.3s;
+      color: #333;
+    }
+
+    #sidebar .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 36px;
+    }
+
+    /* Toggle button */
+    #openSidebarBtn {
+      font-size: 20px;
+      cursor: pointer;
+      padding: 20px 20px;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+  </style>
 </head>
 <body>
   <div class="invitation">
@@ -80,7 +123,29 @@
     <p class="title">❉ Venue ❉</p>
     <p class="wedding-venue">Address Is Pending In, Godhra</p>
   </div>
+<!-- Button to open sidebar -->
+<a id="openSidebarBtn" onclick="openSidebar()"></a>
 
+<!-- Hidden Sidebar -->
+<div id="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+  <a id="whatsappShare" target="_blank">Share to WhatsApp</a>
+</div>
+
+<script>
+  function openSidebar() {
+    document.getElementById("sidebar").style.width = "250px";
+
+    // Update the WhatsApp link with current page URL
+    const pageUrl = encodeURIComponent(window.location.href);
+    const whatsappLink = `https://wa.me/?text=${pageUrl}`;
+    document.getElementById("whatsappShare").href = whatsappLink;
+  }
+
+  function closeSidebar() {
+    document.getElementById("sidebar").style.width = "0";
+  }
+</script>
   <script>
     const params = new URLSearchParams(window.location.search);
 
